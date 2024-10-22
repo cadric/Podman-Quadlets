@@ -86,6 +86,42 @@ firewall-cmd --reload
 
 > **Note:** Replace the port numbers with those used by your services if they differ from the examples above.
 
+---
+
+## To Update Your Quadlets use...
+
+To update your quadlets, you can run:
+
+```bash
+podman auto-update
+```
+
+This will check all quadlets for updates and apply them if needed.
+
+If you are using Fedora Server, it comes with an automatic timer that runs at midnight. You can enable it with:
+
+```bash
+systemctl --user enable --now podman-auto-update.timer
+```
+
+2. **Check the status of the timer**:
+   You can check if the timer is active and running correctly by running:
+
+   ```bash
+   systemctl --user status podman-auto-update.timer
+   ```
+
+   You should see something like this, where the next trigger will be at midnight (or the time you have set):
+
+   ```bash
+   ● podman-auto-update.timer - Podman auto-update timer
+        Loaded: loaded (/usr/lib/systemd/system/podman-auto-update.timer; enabled; preset: disabled)
+        Active: active (waiting) since Tue 2024-10-22 14:30:02 CEST; 2h 14min ago
+       Trigger: Wed 2024-10-23 00:00:00 CEST; 6h left
+   ```
+
+---
+
 ## Additional Notes
 
 - Ensure that you update all instances of `YOURUSERNAME` in the commands and `.container` files to match your actual username.
