@@ -69,7 +69,9 @@ loginctl enable-linger
 
 ### Step 6: Open Firewall Ports (If Applicable)
 
-If you have a firewall running on your server (Fedora 40 has `firewalld` running by default), make sure to open the necessary ports for the services you are running. For example:
+If you have a firewall running on your server (Fedora 40 has `firewalld` running by default), make sure to open the necessary ports for the services you are running.
+
+### I highly recommend that you use cockpit for this, which is allready is running on port 9090 if you are using fedora server.
 
 ```bash
 # Open ports for Sonarr, Jellyfin, and Jellyseerr
