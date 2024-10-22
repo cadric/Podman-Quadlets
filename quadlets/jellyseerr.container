@@ -5,11 +5,12 @@ Description=jellyseerr Container
 Image=docker.io/fallenbagel/jellyseerr:latest
 AutoUpdate=registry
 PublishPort=5055:5055/tcp
+Environment=TZ=Etc/UTC
 Volume=/home/YOURUSERNAME/jellyseerr/config:/app/config:Z
 
 [Service]
-Restart=always
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
 
 [Install]
 WantedBy=default.target
-
