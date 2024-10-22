@@ -67,8 +67,26 @@ To ensure that your Quadlet services restart automatically after a reboot, run t
 loginctl enable-linger
 ```
 
+### Step 6: Open Firewall Ports (If Applicable)
+
+If you have a firewall running on your server (Fedora 40 has `firewalld` running by default), make sure to open the necessary ports for the services you are running. For example:
+
+```bash
+# Open ports for Sonarr, Jellyfin, and Jellyseerr
+firewall-cmd --add-port=8989/tcp --permanent  # Sonarr
+firewall-cmd --add-port=8096/tcp --permanent  # Jellyfin
+firewall-cmd --add-port=5055/tcp --permanent  # Jellyseerr
+firewall-cmd --add-port=13378/tcp --permanent # Audiobookshelf
+
+# Reload the firewall for the changes to take effect
+firewall-cmd --reload
+```
+
+> **Note:** Replace the port numbers with those used by your services if they differ from the examples above.
+
 ## Additional Notes
 
 - Ensure that you update all instances of `YOURUSERNAME` in the commands and `.container` files to match your actual username.
 - Make sure to create all the necessary local directories for any `Volume=` entries before starting the Quadlet services.
+- Open the required ports on your firewall if it's running.
 - This setup has been tested on **Fedora 40**.
