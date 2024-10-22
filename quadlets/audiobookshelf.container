@@ -5,13 +5,14 @@ Description=Audiobookshelf Container
 Image=ghcr.io/advplyr/audiobookshelf:latest
 AutoUpdate=registry
 PublishPort=13378:80
+Environment=TZ=Etc/UTC
 Volume=/home/YOURUSERNAME/audiobookshelf/config:/config:Z
 Volume=/home/YOURUSERNAME/audiobookshelf/media:/audiobooks:Z
 Volume=/home/YOURUSERNAME/audiobookshelf/metadata:/metadata:z
 
 [Service]
-Restart=always
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
 
 [Install]
 WantedBy=default.target
-
