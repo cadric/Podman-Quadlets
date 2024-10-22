@@ -1,0 +1,17 @@
+[Unit]
+Description=Audiobookshelf Container
+
+[Container]
+Image=ghcr.io/advplyr/audiobookshelf:latest
+AutoUpdate=registry
+PublishPort=13378:80
+Volume=/home/YOURUSERNAME/audiobookshelf/config:/config:Z
+Volume=/home/YOURUSERNAME/audiobookshelf/media:/audiobooks:Z
+Volume=/home/YOURUSERNAME/audiobookshelf/metadata:/metadata:z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
