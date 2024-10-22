@@ -1,22 +1,27 @@
 ```markdown
 # Quadlet Container Files for Podman (Rootless Setup)
 
-This repository contains `.container` files for use with Podman and Quadlets in a rootless environment.
+This repository contains `.container` files for use with Podman and Quadlets in a rootless environment. The files have been tested on a **Fedora 40 server**.
 
 ## Installation Instructions
 
 ### Step 1: Place the Files
+
 Move the container files to the following directory:
 
 ```bash
 /home/YOURUSERNAME/.config/containers/systemd
 ```
 
-> Note: You may need to create the `containers` and `systemd` directories if they don't exist. To do this, navigate to `/home/YOURUSERNAME/.config/` and run the following commands:
+> **Important:** Replace `YOURUSERNAME` with your actual username on the system.
+
+If the directories don't exist, create them by navigating to `/home/YOURUSERNAME/.config/` and running the following commands:
 
 ```bash
 mkdir -p containers/systemd
 ```
+
+Make sure to also update any paths inside the `.container` files to match your username.
 
 ### Step 2: Reload Systemd Daemon
 
@@ -45,8 +50,8 @@ loginctl enable-linger
 
 ## Additional Notes
 
-- Make sure you are using Podman in a rootless environment to take advantage of this setup.
-- You only need to start the Quadlet services you want to run.
+- Ensure that you update all instances of `YOURUSERNAME` in the commands and `.container` files to match your actual username.
+- This setup has been tested on **Fedora 40**.
 
 Feel free to reach out if you encounter any issues!
 ```
