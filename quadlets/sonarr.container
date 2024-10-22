@@ -1,0 +1,18 @@
+[Unit]
+Description=Sonarr container
+    
+[Container]
+Image=ghcr.io/hotio/sonarr
+AutoUpdate=registry
+PublishPort=8989:8989
+Environment=UMASK=002
+Environment=TZ=Etc/UTC
+Volume=/home/YOURUSERNAME/sonarr/config:/config:Z
+Volume=/home/YOURUSERNAME/sonarr/data:/data:Z
+
+[Service]
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
+
+[Install]
+WantedBy=default.target
