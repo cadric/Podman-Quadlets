@@ -2,8 +2,6 @@
 
 This repository contains `.container` files for use with Podman and Quadlets in a rootless environment. 
 
-The files have been tested on a **Fedora 40 server**.
-
 ## Installation Instructions
 
 ### Step 1: Place the Files
