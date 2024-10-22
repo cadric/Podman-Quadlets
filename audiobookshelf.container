@@ -1,0 +1,16 @@
+Unit]
+Description=Audiobookshelf Container
+
+[Container]
+Image=ghcr.io/advplyr/audiobookshelf:latest
+PublishPort=13378:80
+Volume=/home/cadric/audiobookshelf/config:/config:Z
+Volume=/home/cadric/audiobookshelf/meta:/meta:Z
+Volume=/home/cadric/audiobookshelf/media:/media:Z
+AutoUpdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

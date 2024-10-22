@@ -1,0 +1,15 @@
+[Unit]
+Description=jellyseerr Container
+
+[Container]
+Image=docker.io/fallenbagel/jellyseerr:latest
+AutoUpdate=registry
+PublishPort=5055:5055/tcp
+Volume=/home/YOURUSERNAME/jellyseerr/config:/app/config:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+

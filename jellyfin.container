@@ -1,0 +1,21 @@
+[Unit]
+Description=Jellyfin Container
+
+[Container]
+Image=docker.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+PublishPort=8096:8096/tcp
+UserNS=keep-id
+Volume=/home/YOURUSERNAME/jellyfin/config:/config:Z
+Volume=/home/YOURUSERNAME/jellyfin/cache:/cache:Z
+Volume=/home/YOURUSERNAME/jellyfin/media:/media:Z
+
+[Service]
+# Inform systemd of additional exit status
+SuccessExitStatus=0 143
+Restart=always
+
+[Install]
+# Start by default on boot
+WantedBy=default.target
+
